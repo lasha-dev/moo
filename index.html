@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Moo Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="child">
+        <img id="moo" src="./images/Send_Moo_Only_Moo.png" />
+        <button class="Btn" id="Btn" onclick="switchOn()">
+          <img
+            id="Btn_img"
+            src="./images/Send_Moo_Btn.png"
+            alt="close"
+            width="300"
+          />
+        </button>
+      </div>
+    </div>
+    <script>
+      function switchOn() {
+        setTimeout(function () {
+          let On = document.getElementById("moo");
+          On.src = "./images/Resend_Moo_only_moo.png";
+          sendMoo();
+        }, 2000);
+        let Btn = document.getElementById("Btn");
+        Btn.disabled = "true";
+        let Btn_img = document.getElementById("Btn_img");
+        Btn_img.src = "./images/Send_Moo_Btn_inactive.png";
+      }
+
+      function sendMoo() {
+        let btnEnable = document.getElementById("Btn");
+        btnEnable.disabled = false;
+        document.getElementById("Btn").setAttribute("onclick", "resend()");
+        let Btn_img = document.getElementById("Btn_img");
+        Btn_img.src = "./images/Resend_Moo_btn.png";
+      }
+
+      function resend() {
+        let On = document.getElementById("moo");
+        On.src = "./images/Send_Moo_only_moo.png";
+        switchOn();
+      }
+    </script>
+  </body>
+</html>
